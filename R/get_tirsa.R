@@ -8,7 +8,7 @@
 #' \code{incident_id}, \code{message_year}, \code{message_month},
 #' \code{message_week}, \code{date}, and \code{hamlet_id}.
 #'
-#' TIRSA is one of the source files combined in \code{\link{get_ground_combat}}.
+#' TIRSA is one of the source files combined in \code{\link{get_comb_inc_dta}}.
 #'
 #' @param cache Logical. If \code{TRUE} (default), the downloaded file is saved
 #'   locally and reused on subsequent calls without re-downloading.

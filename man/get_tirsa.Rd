@@ -26,7 +26,7 @@ Each row is a discrete combat incident. Key variables include
 \code{incident_id}, \code{message_year}, \code{message_month},
 \code{message_week}, \code{date}, and \code{hamlet_id}.
 
-TIRSA is one of the source files combined in \code{\link{get_ground_combat}}.
+TIRSA is one of the source files combined in \code{\link{get_comb_inc_dta}}.
 }
 \examples{
 \dontrun{

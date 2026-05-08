@@ -27,7 +27,7 @@ Each row is a discrete combat incident. Key variables include
 \code{military_region}, \code{force_nationality}, and
 \code{country_code}.
 
-SITRA is one of the source files combined in \code{\link{get_ground_combat}}.
+SITRA is one of the source files combined in \code{\link{get_comb_inc_dta}}.
 }
 \examples{
 \dontrun{
