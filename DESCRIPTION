@@ -16,6 +16,7 @@ Encoding: UTF-8
 LazyData: false
 Imports:
     httr,
+    sf,
     tools,
     utils
 Suggests:

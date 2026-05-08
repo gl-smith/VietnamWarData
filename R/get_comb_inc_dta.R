@@ -1,4 +1,4 @@
-#' Download the combined ground combat incident dataset
+#' Download the combined incident-level dataset
 #'
 #' Downloads and caches the master incident-level dataset that joins the VNDBA,
 #' SITRA, TIRSA, and VCIIA source files into a single standardized table
@@ -20,9 +20,9 @@
 #'
 #' @examples
 #' \dontrun{
-#'   gc <- get_ground_combat()
-#'   head(gc)
+#'   comb_inc <- get_comb_inc_dta()
+#'   head(comb_inc)
 #' }
-get_ground_combat <- function(cache = TRUE, force = FALSE) {
+get_comb_inc_dta <- function(cache = TRUE, force = FALSE) {
   download_vw_file("vietwar_ground_combat.rds", cache = cache, force = force)
 }
