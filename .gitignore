@@ -6,3 +6,4 @@ data-raw/release-assets/
 .httr-oauth
 .DS_Store
 .quarto
+*.Rcheck/
