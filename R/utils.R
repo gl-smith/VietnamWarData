@@ -1,6 +1,11 @@
 # Internal helpers for downloading and caching data files from GitHub Releases.
 
-.vw_base_url <- "https://github.com/gl-smith/VietnamWarData/releases/download/v1.0.0"
+.vw_repo    <- "gl-smith/VietnamWarData"
+.vw_release <- "v1.0.0"
+.vw_api_url <- paste0(
+  "https://api.github.com/repos/", .vw_repo,
+  "/releases/tags/", .vw_release
+)
 
 vw_cache_dir <- function() {
   tools::R_user_dir("VietnamWarData", "cache")
@@ -27,9 +32,40 @@ vw_get_token <- function() {
   )
 }
 
+# Fetches the list of release assets and returns the API download URL for
+# `filename`. Results are cached in .vw_asset_cache for the session so
+# only one API call is made regardless of how many datasets are downloaded.
+.vw_asset_cache <- NULL
+
+vw_asset_url <- function(filename, token) {
+  if (is.null(.vw_asset_cache)) {
+    resp <- httr::GET(
+      .vw_api_url,
+      httr::add_headers(
+        Authorization = paste("token", token),
+        Accept        = "application/vnd.github.v3+json"
+      )
+    )
+    httr::stop_for_status(resp)
+    assets <- httr::content(resp)$assets
+    cache  <- stats::setNames(
+      vapply(assets, function(a) a$url, character(1)),
+      vapply(assets, function(a) a$name, character(1))
+    )
+    assign(".vw_asset_cache", cache, envir = parent.env(environment()))
+  }
+
+  url <- .vw_asset_cache[[filename]]
+  if (is.null(url)) {
+    stop("'", filename, "' not found in release ", .vw_release, ". ",
+         "Check that the data files were uploaded to GitHub.")
+  }
+  url
+}
+
 #' @keywords internal
 download_vw_file <- function(filename, cache = TRUE, force = FALSE) {
-  cache_dir <- vw_cache_dir()
+  cache_dir  <- vw_cache_dir()
   local_path <- file.path(cache_dir, filename)
 
   if (!force && cache && file.exists(local_path)) {
@@ -38,21 +74,19 @@ download_vw_file <- function(filename, cache = TRUE, force = FALSE) {
 
   if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
 
-  url   <- paste0(.vw_base_url, "/", filename)
   token <- vw_get_token()
+  url   <- vw_asset_url(filename, token)
 
   message("Downloading ", filename, " ...")
   resp <- httr::GET(
     url,
-    httr::add_headers(Authorization = paste("token", token)),
+    httr::add_headers(
+      Authorization = paste("token", token),
+      Accept        = "application/octet-stream"
+    ),
     httr::write_disk(local_path, overwrite = TRUE),
     httr::progress()
   )
-
-  if (httr::status_code(resp) == 404) {
-    stop("File not found on GitHub Release (404). ",
-         "Check that the data files were uploaded successfully.")
-  }
   httr::stop_for_status(resp)
 
   readRDS(local_path)
@@ -80,7 +114,6 @@ vw_auth <- function(token) {
 #' Return the path to the local data cache
 #'
 #' Returns the directory where \code{VietnamWarData} stores downloaded files.
-#' Useful for inspecting or manually managing cached data.
 #'
 #' @return A character string giving the cache directory path.
 #' @export

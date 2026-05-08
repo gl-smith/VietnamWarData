@@ -11,7 +11,6 @@ A character string giving the cache directory path.
 }
 \description{
 Returns the directory where \code{VietnamWarData} stores downloaded files.
-Useful for inspecting or manually managing cached data.
 }
 \examples{
 vw_cache_path()
