@@ -16,21 +16,6 @@ Despite the impressive scale and scope of these collection efforts, most of the 
 remotes::install_github("gl-smith/VietnamWarData")
 ```
 
-### Authentication
-
-Because the repository is private, a GitHub Personal Access Token (PAT) with `repo` scope is required to download data. Provide your token once per session:
-
-```r
-library(VietnamWarData)
-vw_auth("your_github_token")
-```
-
-To avoid entering the token every session, add the following line to your `~/.Renviron` file (run `usethis::edit_r_environ()` to open it):
-
-```
-GITHUB_PAT=your_github_token
-```
-
 ## Available Datasets
 
 The package provides access to 12 cleaned data files. A summary is provided below; full details are available in Smith (2025) and the accompanying Online Appendix.
@@ -58,7 +43,6 @@ All download functions share the same interface. Files are cached locally after 
 
 ```r
 library(VietnamWarData)
-vw_auth("your_github_token")
 
 # Combined incident-level ground combat database
 comb_inc <- get_comb_inc_dta()
