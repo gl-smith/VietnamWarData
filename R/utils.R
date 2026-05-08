@@ -77,24 +77,16 @@ download_vw_file <- function(filename, cache = TRUE, force = FALSE) {
   token <- vw_get_token()
   url   <- vw_asset_url(filename, token)
 
-  # Step 1: ask GitHub API for the redirect URL without following it.
-  # The Authorization header must NOT reach S3 or it conflicts with S3's
-  # own signed-URL auth and corrupts the download.
-  redirect <- httr::GET(
+  message("Downloading ", filename, " ...")
+  # httr follows the GitHub -> S3 redirect automatically. The Authorization
+  # header is not forwarded to S3 (different domain) so it does not conflict
+  # with S3's signed-URL auth.
+  resp <- httr::GET(
     url,
     httr::add_headers(
       Authorization = paste("token", token),
       Accept        = "application/octet-stream"
     ),
-    httr::config(followlocation = 0L)
-  )
-  s3_url <- httr::headers(redirect)[["location"]]
-  if (is.null(s3_url)) httr::stop_for_status(redirect)
-
-  # Step 2: download the actual file from S3 with no auth header.
-  message("Downloading ", filename, " ...")
-  resp <- httr::GET(
-    s3_url,
     httr::write_disk(local_path, overwrite = TRUE),
     httr::progress()
   )
