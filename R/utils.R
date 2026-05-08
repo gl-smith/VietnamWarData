@@ -32,13 +32,14 @@ vw_get_token <- function() {
   )
 }
 
-# Fetches the list of release assets and returns the API download URL for
-# `filename`. Results are cached in .vw_asset_cache for the session so
-# only one API call is made regardless of how many datasets are downloaded.
-.vw_asset_cache <- NULL
+# Mutable store for the release asset list. Using an environment rather than
+# a plain variable because R locks top-level namespace bindings after load,
+# but the *contents* of an environment remain mutable.
+.vw_state <- new.env(parent = emptyenv())
+.vw_state$asset_cache <- NULL
 
 vw_asset_url <- function(filename, token) {
-  if (is.null(.vw_asset_cache)) {
+  if (is.null(.vw_state$asset_cache)) {
     resp <- httr::GET(
       .vw_api_url,
       httr::add_headers(
@@ -48,14 +49,13 @@ vw_asset_url <- function(filename, token) {
     )
     httr::stop_for_status(resp)
     assets <- httr::content(resp)$assets
-    cache  <- stats::setNames(
-      vapply(assets, function(a) a$url, character(1)),
+    .vw_state$asset_cache <- stats::setNames(
+      vapply(assets, function(a) a$url,  character(1)),
       vapply(assets, function(a) a$name, character(1))
     )
-    assign(".vw_asset_cache", cache, envir = parent.env(environment()))
   }
 
-  url <- .vw_asset_cache[[filename]]
+  url <- .vw_state$asset_cache[[filename]]
   if (is.null(url)) {
     stop("'", filename, "' not found in release ", .vw_release, ". ",
          "Check that the data files were uploaded to GitHub.")
