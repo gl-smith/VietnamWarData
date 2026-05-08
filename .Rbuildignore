@@ -1,0 +1,6 @@
+^data-raw$
+^\.git$
+^\.github$
+^VietnamWarData\.Rproj$
+^README\.Rmd$
+^.*\.Rcheck$

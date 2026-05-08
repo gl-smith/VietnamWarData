@@ -1,0 +1,25 @@
+Package: VietnamWarData
+Type: Package
+Title: Download Vietnam War Datasets Declassified by NARA
+Version: 0.1.0
+Author: Gregory Smith [aut, cre]
+Maintainer: Gregory Smith <gregory.l.smith58@gmail.com>
+Description: Provides functions to download and locally cache Vietnam War
+    datasets declassified by the National Archives and Records Administration
+    (NARA). Includes ground combat incidents, U.S. casualty records, hamlet
+    evaluation surveys, naval gunfire missions, psychological operations
+    sorties, base area assessments, and other military datasets spanning
+    1963-1974. A combined incident-level dataset joins the major ground combat
+    sources into a single analysis-ready file.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: false
+Imports:
+    tools,
+    utils
+Suggests:
+    dplyr,
+    readr
+URL: https://github.com/gl-smith/VietnamWarData
+BugReports: https://github.com/gl-smith/VietnamWarData/issues
+Config/roxygen2/version: 8.0.0
