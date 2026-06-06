@@ -1,33 +1,37 @@
 # Explore the Data
 
-These charts are **interactive** and run entirely in your browser — no R
-session required. Drag the year slider (or press **play**) to watch
-patterns change over time; hover for exact values, and click-drag to
-zoom. The underlying figures come from the combined incident database
-([`get_comb_inc_dta()`](https://gl-smith.github.io/VietnamWarData/reference/get_comb_inc_dta.md)),
-pre-aggregated for use here.
+This package ships two interactive tools that run **entirely in your
+browser** — no R installation or download required. Pick one below.
 
-## Interactive charts
+## [Interactive charts](https://gl-smith.github.io/VietnamWarData/articles/interactive-charts.md)
 
-- Incident density over time
-- Event counts
+Animated views of the combined ground-combat database
+([`get_comb_inc_dta()`](https://gl-smith.github.io/VietnamWarData/reference/get_comb_inc_dta.md)):
 
-A 2-D density heat map of ground combat incidents across South Vietnam,
-1963–1973, split by initiating side. Use the slider to step through the
-years.
+- a year-by-year 2-D density heat map of incidents across South Vietnam,
+  and
+- enemy incidents by action category and incidents per month over time.
 
-**Enemy incidents by action category** — press play or drag the slider
-to see how the mix of harassment, terrorism, mining, and attacks shifted
-year to year.
+Drag the year slider or press play; hover and zoom. Loads instantly.
 
-**Incidents per month** — hover for monthly totals; click-drag to zoom
-into a period (e.g. the 1968 Tet Offensive).
+[Open the interactive charts
+→](https://gl-smith.github.io/VietnamWarData/articles/interactive-charts.md)
 
-## 
+## [Casualties explorer](https://gl-smith.github.io/VietnamWarData/casualties-explorer/index.md)
 
-*Want to build these yourself?* See the
-[satellite](https://gl-smith.github.io/VietnamWarData/articles/satellite-maps.md)
-and
-[counts](https://gl-smith.github.io/VietnamWarData/articles/incident-counts.md)
-vignettes for the underlying (static) recipes, or grab the data with
-[`get_comb_inc_dta()`](https://gl-smith.github.io/VietnamWarData/reference/get_comb_inc_dta.md).
+A live app (built with
+[shinylive](https://posit-dev.github.io/r-shinylive/)) for the U.S.
+fatal-casualty records
+([`get_dcas()`](https://gl-smith.github.io/VietnamWarData/reference/get_dcas.md)).
+Filter by **service branch**, **state of origin**, and **year of
+death**, and every view re-counts to match:
+
+- a choropleth map of casualties by home state,
+- casualties over time, and
+- the states ranked by casualty count.
+
+Because it runs a small R session inside your browser, the first load
+takes a few seconds.
+
+[Open the casualties explorer
+→](https://gl-smith.github.io/VietnamWarData/casualties-explorer/index.md)

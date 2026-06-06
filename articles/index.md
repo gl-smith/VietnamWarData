@@ -2,6 +2,8 @@
 
 ### Vignettes
 
+- [Counting Incidents: Time Series and Category
+  Counts](https://gl-smith.github.io/VietnamWarData/articles/incident-counts.md):
 - [Getting Started: A Province Choropleth
   Map](https://gl-smith.github.io/VietnamWarData/articles/province-map.md):
 - [Mapping Incidents Over Satellite Imagery: Points and Heat
@@ -12,10 +14,10 @@
   (HES)](https://gl-smith.github.io/VietnamWarData/articles/hes-hamlet-security.md):
 - [Mapping Allied Unit Locations
   (SEAFA)](https://gl-smith.github.io/VietnamWarData/articles/seafa-unit-locations.md):
-- [Counting Incidents: Time Series and Category
-  Counts](https://gl-smith.github.io/VietnamWarData/articles/incident-counts.md):
 
 ### Interactive
 
 - [Explore the
   Data](https://gl-smith.github.io/VietnamWarData/articles/explore.md):
+- [Interactive
+  Charts](https://gl-smith.github.io/VietnamWarData/articles/interactive-charts.md):
