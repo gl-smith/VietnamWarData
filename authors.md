@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Gregory Smith**. Maintainer.
+- **Gregory L. Smith**. Author, maintainer.
 
 ## Citation
 
