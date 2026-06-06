@@ -13,8 +13,8 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
 
 The Hamlet Evaluation System comes in two package files: `get_hes_hamla()`
 (HAMLA, 1967–1969) and `get_hes70()` (HES-70/71, 1969–1974). They use different
-column layouts, but both classify every hamlet into the **same security
-category** — Score A through Score E, plus VC Controlled. This article uses that
+column layouts, but both classify every hamlet into the same security
+category — Score A through Score E, plus VC Controlled. This article uses that
 common category to combine the two files into a single 1–6 security score and
 then maps it.
 
@@ -39,8 +39,8 @@ sv_outline <- get_province_boundaries() |> st_union()
 
 Keep the hamlet-level records from each file, line up the shared columns
 (renaming coordinates and the category field), join, then translate the category
-into an ordered score: **A = 1 (full Allied/GVN control) … E = 5, V = 6 (full VC
-control)**.
+into an ordered score: A = 1 (full Allied/GVN control) … E = 5, V = 6 (full VC
+control).
 
 ```{r}
 hamla <- get_hes_hamla() |>
