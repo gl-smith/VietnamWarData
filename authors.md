@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/gl-smith/VietnamWarData/blob/master/inst/CITATION)
+[`inst/CITATION`](https://github.com/gl-smith/VietnamWarData/blob/v1.0.1/inst/CITATION)
 
 Smith, Gregory L. (2025). Beyond body counts: Vietnam war ground combat
 data. Conflict Management and Peace Science.
