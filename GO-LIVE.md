@@ -53,10 +53,19 @@ Toolchain notes: R 4.6.0; pandoc is **not** on PATH — point at Positron's bund
 - [x] **#1 docs/ duplication + deploy mechanism.** Resolved: `docs/` is now git-ignored; the Actions
       workflow builds & deploys it. (Source assets in `pkgdown/assets/` are the only committed copies.)
 - [x] **#5 CI deps.** `Config/Needs/website` added to DESCRIPTION.
-- [ ] **#2 Commit** the working copy (clean history/message). _(outward — your call)_
-- [ ] **#3 Merge with original repo.** No real git divergence — just commit `-site` work and push to
-      `gl-smith/VietnamWarData`; then retire the frozen original folder so there's one working copy. _(outward — your call)_
-- [ ] **#4 Enable GitHub Pages.** `usethis::use_pkgdown_github_pages()` (creates gh-pages + enables Pages; needs GitHub auth). _(outward — your call)_
+- [x] **#2 Commit** — committed as `7d48801` ("Add pkgdown documentation website").
+- [x] **#3 Merge/push** — pushed to `gl-smith/VietnamWarData` master (no divergence; this is the merge).
+      TODO: retire the frozen original folder `~/Dropbox/r-packages/VietnamWarData/` so there's one working copy.
+- [x] **#4 GitHub Pages — LIVE.** Site published and verified at https://gl-smith.github.io/VietnamWarData/
+      (home, navbar, Explore plotly page, and hosted CMPS PDF all confirmed; auto-HTTPS on).
+
+### Post-launch / optional
+- [ ] Retire the frozen original folder `~/Dropbox/r-packages/VietnamWarData/` (it's now stale vs. origin/master).
+- [ ] Custom domain (optional): `vietnamwardata.org` is NOT registered. To use it, register it, add GitHub
+      Pages A records (185.199.108-111.153) + AAAA (2606:50c0:8000-8003::153), set it in Settings > Pages,
+      then I'll add a CNAME file to pkgdown/assets/ + update url:/URL:. Until then, the github.io URL is canonical.
+- [ ] #9 confirm Explore density animation in-browser; #10 finalize Explore wording (TODO in explore.Rmd).
+- [ ] Note: GO-LIVE.md has uncommitted edits; commit on the next push if you want it tracked.
 
 ### Quality / correctness
 - [x] **#8 `R CMD check`** — passes clean (**Status: OK**, 0 errors/warnings/notes).

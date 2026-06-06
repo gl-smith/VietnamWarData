@@ -1,4 +1,8 @@
-# VietnamWarData
+# VietnamWarData <img src="man/figures/logo.png" align="right" height="139" alt="VietnamWarData hex logo" />
+
+[![Website](https://img.shields.io/badge/docs-website-2c3e50.svg)](https://gl-smith.github.io/VietnamWarData/)
+
+### 📖 Documentation & interactive data explorer: **<https://gl-smith.github.io/VietnamWarData/>**
 
 An R package for downloading and working with cleaned Vietnam War datasets declassified by the National Archives and Records Administration (NARA). The datasets and cleaning procedures are documented in:
 
