@@ -31,7 +31,10 @@ Toolchain notes: R 4.6.0; pandoc is **not** on PATH — point at Positron's bund
 - Documentation menu: 13 NARA guide PDFs (`pkgdown/assets/guides/`).
 - **Vignettes** tab (6): province choropleth, satellite maps, BASFA base areas, HES hamlet security
   (combines HAMLA + HES-70/71 on the hamlet category), SEAFA unit locations (incl. 1/11 ACR track), incident counts.
-- **Explore** tab: interactive plotly page (animated density heatmap + counts), bundled pre-aggregated data.
+- **Explore** dropdown: Overview (landing) · Interactive charts (plotly density heatmap + counts) ·
+  Casualties explorer (shinylive/WebAssembly DCAS app: filters for service branch, state, year; map +
+  time series + ranked states). App source in data-raw/casualties-app/; exported to
+  pkgdown/assets/casualties-explorer/ (~84 MB committed; .Rbuildignored so not in the package).
 - **Articles** tab: CMPS preprint PDF + ISQ 2026 placeholder. PDF links open in new tab (all 14).
 - Hex logo (`man/figures/logo.png`); Vignettes index heading override; "Sabotage" label fix; Title Case headers.
 - **Google Maps TOS resolved (Option B):** no imagery bundled; `get_satellite_map()` fetches via user's API key;

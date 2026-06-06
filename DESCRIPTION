@@ -2,8 +2,9 @@ Package: VietnamWarData
 Type: Package
 Title: Download Vietnam War Datasets Declassified by NARA
 Version: 1.0.0
-Author: Gregory Smith [aut, cre]
-Maintainer: Gregory Smith <gregory.l.smith58@gmail.com>
+Authors@R:
+    person("Gregory L.", "Smith", email = "gregory.l.smith58@gmail.com",
+           role = c("aut", "cre"))
 Description: Provides functions to download and locally cache Vietnam War
     datasets declassified by the National Archives and Records Administration
     (NARA). Includes ground combat incidents, U.S. casualty records, hamlet
