@@ -3,6 +3,23 @@
 \name{get_conga}
 \alias{get_conga}
 \title{Download the CONGA naval gunfire mission dataset}
+\format{
+A data frame with 161,283 rows and 46 variables. Key variables
+  include:
+\describe{
+  \item{mission_firing_date}{Date of the gunfire mission.}
+  \item{mission_start_time}{Start time of the mission.}
+  \item{ship_name}{Name of the firing ship.}
+  \item{ship_type_code}{Ship type code.}
+}
+}
+\source{
+U.S. National Archives and Records Administration (NARA), College
+  Park, MD. Electronic records collected by the U.S. Military Assistance
+  Command, Vietnam (MACV). Source file: Combined Naval Gunfire Activity
+  (CONGA). See Smith (2025) and its Online Appendix for full archival
+  accession details.
+}
 \usage{
 get_conga(cache = TRUE, force = FALSE)
 }
@@ -22,13 +39,16 @@ covering U.S. Navy ship gunfire support missions in the Vietnam War from
 1966 to 1973.
 }
 \details{
-Each row is a discrete gunfire mission. Key variables include
-\code{mission_firing_date}, \code{mission_start_time},
-\code{ship_name}, and \code{ship_type_code}.
+Each row is a discrete gunfire mission.
 }
 \examples{
 \dontrun{
   conga <- get_conga()
   head(conga)
 }
+}
+\references{
+Smith, Gregory L. (2025). "Beyond body counts: Vietnam war ground combat
+data." \emph{Conflict Management and Peace Science}.
+\doi{10.1177/07388942251391081}
 }

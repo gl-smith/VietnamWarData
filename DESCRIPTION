@@ -1,7 +1,7 @@
 Package: VietnamWarData
 Type: Package
 Title: Download Vietnam War Datasets Declassified by NARA
-Version: 0.1.0
+Version: 1.0.0
 Author: Gregory Smith [aut, cre]
 Maintainer: Gregory Smith <gregory.l.smith58@gmail.com>
 Description: Provides functions to download and locally cache Vietnam War
@@ -20,7 +20,20 @@ Imports:
     utils
 Suggests:
     dplyr,
-    readr
-URL: https://github.com/gl-smith/VietnamWarData
+    stringr,
+    readr,
+    ggplot2,
+    scales,
+    ggmap,
+    lubridate,
+    tidyr,
+    plotly,
+    htmlwidgets,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://gl-smith.github.io/VietnamWarData/, https://github.com/gl-smith/VietnamWarData
 BugReports: https://github.com/gl-smith/VietnamWarData/issues
 Config/roxygen2/version: 8.0.0
+Config/Needs/website: dplyr, stringr, tidyr, lubridate, scales, ggplot2, sf,
+    ggmap, plotly, htmlwidgets

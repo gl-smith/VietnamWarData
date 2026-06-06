@@ -3,6 +3,27 @@
 \name{get_hes70}
 \alias{get_hes70}
 \title{Download the HES-70/71 hamlet evaluation dataset}
+\format{
+A data frame with 693,862 rows and 160 variables. Key variables
+  include:
+\describe{
+  \item{us_hamlet_id}{U.S. hamlet identifier.}
+  \item{corps_region_code}{Corps region code.}
+  \item{province_code}{Province code.}
+  \item{district_code}{District code.}
+  \item{village_code}{Village code.}
+  \item{hamlet_code}{Hamlet code.}
+  \item{rectp_record_type}{Record type.}
+  \item{date}{Evaluation month.}
+}
+}
+\source{
+U.S. National Archives and Records Administration (NARA), College
+  Park, MD (RG 472). Electronic records collected by the U.S. Military
+  Assistance Command, Vietnam (MACV). Source files: Hamlet Evaluation System
+  HES-70 and HES-71. See Smith (2025) and its Online Appendix for full
+  archival accession details.
+}
 \usage{
 get_hes70(cache = TRUE, force = FALSE)
 }
@@ -18,20 +39,24 @@ A data frame with 693,862 rows and 160 variables.
 }
 \description{
 Downloads and caches the Hamlet Evaluation System data from the HES-70 and
-HES-71 instruments, covering hamlet-level security and development
-assessments from 1969 to 1974.
+HES-71 instruments, covering monthly hamlet-level security and development
+assessments from 1969 to 1974. For the 1967-1969 HAMLA period, see
+\code{\link{get_hes_hamla}}.
 }
 \details{
-Each row is a hamlet-month evaluation record. Key variables include
-\code{us_hamlet_id}, \code{corps_region_code}, \code{province_code},
-\code{district_code}, \code{village_code}, \code{hamlet_code},
-\code{rectp_record_type}, and \code{date}.
-
-For the 1967-1969 HAMLA period, see \code{\link{get_hes_hamla}}.
+Each row is a hamlet-month evaluation record.
 }
 \examples{
 \dontrun{
   hes70 <- get_hes70()
   head(hes70)
 }
+}
+\references{
+Smith, Gregory L. (2025). "Beyond body counts: Vietnam war ground combat
+data." \emph{Conflict Management and Peace Science}.
+\doi{10.1177/07388942251391081}
+}
+\seealso{
+\code{\link{get_hes_hamla}}
 }

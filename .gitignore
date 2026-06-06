@@ -3,7 +3,12 @@
 .RData
 .Ruserdata
 data-raw/release-assets/
+# Google satellite basemaps are NOT redistributed (TOS); fetch via API instead
+inst/extdata/*_satellite_map.RData
 .httr-oauth
 .DS_Store
 .quarto
 *.Rcheck/
+*.tar.gz
+# Built pkgdown site — deployed by the GitHub Actions workflow, not committed
+docs/

@@ -1,0 +1,157 @@
+url: https://gl-smith.github.io/VietnamWarData/
+
+template:
+  bootstrap: 5
+
+home:
+  title: "VietnamWarData: Vietnam War Datasets from NARA"
+  description: >
+    An R package providing cleaned, analysis-ready Vietnam War datasets
+    declassified by the National Archives and Records Administration (NARA).
+    Originally collected by the US Military Assistance Command Vietnam (MACV),
+    the files document ground combat incidents, naval gunfire, casualties,
+    territorial control, hamlet evaluations, and psychological operations.
+
+navbar:
+  structure:
+    left:  [intro, reference, explore, articles, papers, documentation, news]
+    right: [github]
+  components:
+    # Interactive (plotly) data explorer — its own top-level tab.
+    explore:
+      text: Explore
+      href: articles/explore.html
+    # Rename the built-in vignette tab ("Articles") to "Vignettes".
+    articles:
+      text: Vignettes
+      href: articles/index.html
+    # "Articles" tab = empirical papers that use these data (preprints + links).
+    papers:
+      text: Articles
+      menu:
+        - text: "Empirical papers using these data"
+        - text: "Smith 2025 (CMPS) — Beyond Body Counts (preprint + appendix)"
+          href: papers/smith-2025-cmps-beyond-body-counts.pdf
+          target: _blank
+        - text: "Smith 2026 (ISQ) — Sequencing Matters: The Contingent Effects of Military Force (forthcoming)"
+    documentation:
+      text: Documentation
+      menu:
+        - text: "NARA Source Guides (public domain)"
+        - text: "VNDBA Guide"
+          href: guides/vndba-guide.pdf
+          target: _blank
+        - text: "SITRA Guide"
+          href: guides/sitra-guide.pdf
+          target: _blank
+        - text: "TIRSA Guide"
+          href: guides/tirsa-guide.pdf
+          target: _blank
+        - text: "VCIIA Guide"
+          href: guides/vciia-guide.pdf
+          target: _blank
+        - text: "CONGA Guide"
+          href: guides/conga-guide.pdf
+          target: _blank
+        - text: "NASVA Guide"
+          href: guides/nasva-guide.pdf
+          target: _blank
+        - text: "DCAS Guide"
+          href: guides/dcas-guide.pdf
+          target: _blank
+        - text: "SEAFA Guide"
+          href: guides/seafa-guide.pdf
+          target: _blank
+        - text: "BASFA Guide"
+          href: guides/basfa-guide.pdf
+          target: _blank
+        - text: "HES-HAMLA Guide"
+          href: guides/hes-hamla-guide.pdf
+          target: _blank
+        - text: "HES-70/71 Guide"
+          href: guides/hes70-guide.pdf
+          target: _blank
+        - text: "PSYOPS-A Guide"
+          href: guides/psyops-guide.pdf
+          target: _blank
+        - text: "SORTIE-A Guide"
+          href: guides/sortie-guide.pdf
+          target: _blank
+  # ---------------------------------------------------------------------------
+  # Adding a new empirical paper: drop its PDF in pkgdown/assets/papers/ and add
+  # a menu entry under `papers` above (href: papers/<file>.pdf). For the
+  # forthcoming ISQ article, replace the placeholder line with a real href once
+  # the preprint is available.
+  #
+  # Still deferred:
+  #   * Combined Incident Codebook -> add under `documentation.menu` once
+  #     vignettes/codebook.Rmd is written (href: articles/codebook.html).
+  #   * cleaning_code -> pending public cleaning-pipeline repo URL.
+  # ---------------------------------------------------------------------------
+  # components:
+  #   cleaning_code:
+  #     text: "Cleaning Code"
+  #     href: https://github.com/gl-smith/REPLACE-WITH-CLEANING-REPO
+
+articles:
+  - title: Vignettes
+    navbar: ~
+    contents:
+      - province-map
+      - satellite-maps
+      - base-areas
+      - incident-counts
+  - title: Interactive
+    contents:
+      - explore
+
+reference:
+  - title: "Ground Combat"
+    desc: >
+      Incident-level ground combat operations in Southeast Asia. The combined
+      database joins the four major source files into one standardized table.
+    contents:
+      - get_comb_inc_dta
+      - get_vndba
+      - get_sitra
+      - get_tirsa
+      - get_vciia
+
+  - title: "Naval Operations"
+    desc: "Naval gunfire support and coastal surveillance operations."
+    contents:
+      - get_conga
+      - get_nasva
+
+  - title: "Personnel & Casualties"
+    desc: "US military fatal casualty records."
+    contents:
+      - get_dcas
+
+  - title: "Territory & Control"
+    desc: "Unit locations, enemy base areas, and hamlet security assessments."
+    contents:
+      - get_seafa
+      - get_basfa
+      - get_hes_hamla
+      - get_hes70
+
+  - title: "Psychological Operations"
+    desc: "Surface and aerial psychological operations."
+    contents:
+      - get_psyops
+      - get_sortie
+
+  - title: "Mapping"
+    desc: >
+      Province/corps boundaries and a Google satellite basemap helper
+      (the helper fetches imagery via your own API key; nothing is bundled).
+    contents:
+      - get_province_boundaries
+      - get_satellite_map
+
+  - title: "Cache Utilities"
+    desc: "Inspect and manage the local data cache."
+    contents:
+      - vw_cache_path
+      - vw_clear_cache

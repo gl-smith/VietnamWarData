@@ -1,18 +1,44 @@
 #' Download the BASFA base area status dataset
 #'
 #' Downloads and caches the Base Area Status File (BASFA) dataset covering
-#' Viet Cong base area assessments from 1967 to 1971.
+#' assessments of enemy base areas in South Vietnam, North Vietnam, and
+#' Cambodia from 1967 to 1971.
 #'
-#' Each row is a monthly base area record. Key variables include
-#' \code{base_area_id}, \code{year}, \code{month}, \code{province},
-#' \code{vc_military_region}, and \code{current_status}.
+#' Each row is a monthly base area record. The dataset carries spatial geometry
+#' for the boundaries of 139 enemy base areas, and is returned as an \code{sf}
+#' object (geometry type \code{POLYGON}) ready for \code{geom_sf()} and other
+#' \code{sf} operations.
 #'
 #' @param cache Logical. If \code{TRUE} (default), the downloaded file is saved
 #'   locally and reused on subsequent calls without re-downloading.
 #' @param force Logical. If \code{TRUE}, re-downloads the file even if a cached
 #'   copy already exists. Default is \code{FALSE}.
 #'
-#' @return A data frame with 8,784 rows and 36 variables.
+#' @format An \code{sf} data frame with 8,784 rows and 36 variables (geometry
+#'   type \code{POLYGON}). Key variables include:
+#' \describe{
+#'   \item{base_area_id}{Base area identifier.}
+#'   \item{year}{Year of assessment.}
+#'   \item{month}{Month of assessment.}
+#'   \item{province}{Province.}
+#'   \item{vc_military_region}{Viet Cong military region.}
+#'   \item{current_status}{Current status of the base area.}
+#'   \item{geometry}{Polygon boundary of the base area (\code{sfc_POLYGON}).}
+#' }
+#'
+#' @return An \code{sf} data frame with 8,784 rows and 36 variables (geometry
+#'   type \code{POLYGON}).
+#'
+#' @source U.S. National Archives and Records Administration (NARA), College
+#'   Park, MD. Electronic records collected by the U.S. Military Assistance
+#'   Command, Vietnam (MACV). Source file: Base Area Status File (BASFA). See
+#'   Smith (2025) and its Online Appendix for full archival accession details.
+#'
+#' @references
+#' Smith, Gregory L. (2025). "Beyond body counts: Vietnam war ground combat
+#' data." \emph{Conflict Management and Peace Science}.
+#' \doi{10.1177/07388942251391081}
+#'
 #' @export
 #'
 #' @examples
@@ -21,5 +47,6 @@
 #'   head(basfa)
 #' }
 get_basfa <- function(cache = TRUE, force = FALSE) {
-  download_vw_file("vietwar_basfa.rds", cache = cache, force = force)
+  out <- download_vw_file("vietwar_basfa.rds", cache = cache, force = force)
+  sf::st_as_sf(out)
 }

@@ -3,6 +3,24 @@
 \name{get_nasva}
 \alias{get_nasva}
 \title{Download the NASVA naval surveillance dataset}
+\format{
+A data frame with 670,242 rows and 69 variables. Key variables
+  include:
+\describe{
+  \item{reporting_date}{Date of the surveillance report.}
+  \item{task_unit_code}{Task unit code.}
+  \item{operation_code}{Operation code.}
+  \item{area_designation_code_of_surveillance_area}{Surveillance area
+    designation code.}
+}
+}
+\source{
+U.S. National Archives and Records Administration (NARA), College
+  Park, MD. Electronic records collected by the U.S. Military Assistance
+  Command, Vietnam (MACV). Source file: Naval Surveillance Activities
+  (NASVA). See Smith (2025) and its Online Appendix for full archival
+  accession details.
+}
 \usage{
 get_nasva(cache = TRUE, force = FALSE)
 }
@@ -18,16 +36,20 @@ A data frame with 670,242 rows and 69 variables.
 }
 \description{
 Downloads and caches the NASVA naval activity and surveillance dataset
-covering operations in Vietnam from 1966 to 1972.
+covering coastal surveillance operations in Vietnam (including Operations
+Market Time and Game Warden) from 1966 to 1972.
 }
 \details{
-Each row is a surveillance report record. Key variables include
-\code{reporting_date}, \code{task_unit_code}, \code{operation_code}, and
-\code{area_designation_code_of_surveillance_area}.
+Each row is a surveillance report record.
 }
 \examples{
 \dontrun{
   nasva <- get_nasva()
   head(nasva)
 }
+}
+\references{
+Smith, Gregory L. (2025). "Beyond body counts: Vietnam war ground combat
+data." \emph{Conflict Management and Peace Science}.
+\doi{10.1177/07388942251391081}
 }

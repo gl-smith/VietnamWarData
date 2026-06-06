@@ -1,0 +1,19 @@
+citHeader(
+  "To cite VietnamWarData in publications, please cite the accompanying article:"
+)
+
+bibentry(
+  bibtype = "Article",
+  title   = "Beyond body counts: Vietnam war ground combat data",
+  author  = person("Gregory L.", "Smith"),
+  journal = "Conflict Management and Peace Science",
+  year    = "2025",
+  doi     = "10.1177/07388942251391081",
+  url     = "https://doi.org/10.1177/07388942251391081",
+  textVersion = paste(
+    "Smith, Gregory L. (2025).",
+    "Beyond body counts: Vietnam war ground combat data.",
+    "Conflict Management and Peace Science.",
+    "doi:10.1177/07388942251391081."
+  )
+)

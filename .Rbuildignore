@@ -4,3 +4,9 @@
 ^VietnamWarData\.Rproj$
 ^README\.Rmd$
 ^.*\.Rcheck$
+^_pkgdown\.yml$
+^pkgdown$
+^docs$
+^\.DS_Store$
+^inst/extdata/.*_satellite_map\.RData$
+^GO-LIVE\.md$
