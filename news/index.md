@@ -1,5 +1,12 @@
 # Changelog
 
+## VietnamWarData 1.0.1
+
+- Added software-citation metadata: `CITATION.cff` (enables GitHub’s
+  “Cite this repository” button) and `.zenodo.json` (Zenodo archiving
+  and software DOI).
+- Modernized `DESCRIPTION` to use `Authors@R` with ORCID.
+
 ## VietnamWarData 1.0.0
 
 - Initial public release.
