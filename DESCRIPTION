@@ -29,6 +29,7 @@ Suggests:
     tidyr,
     plotly,
     htmlwidgets,
+    ggrepel,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
@@ -36,4 +37,4 @@ URL: https://gl-smith.github.io/VietnamWarData/, https://github.com/gl-smith/Vie
 BugReports: https://github.com/gl-smith/VietnamWarData/issues
 Config/roxygen2/version: 8.0.0
 Config/Needs/website: dplyr, stringr, tidyr, lubridate, scales, ggplot2, sf,
-    ggmap, plotly, htmlwidgets
+    ggmap, plotly, htmlwidgets, ggrepel
