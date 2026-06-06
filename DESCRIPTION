@@ -1,7 +1,7 @@
 Package: VietnamWarData
 Type: Package
 Title: Download Vietnam War Datasets Declassified by NARA
-Version: 1.0.0
+Version: 1.0.1
 Authors@R:
     person("Gregory L.", "Smith", email = "gregory.l.smith58@gmail.com",
            role = c("aut", "cre"),
