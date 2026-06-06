@@ -115,9 +115,16 @@
 <h3 id="blockers-for-deploy">Blockers for deploy<a class="anchor" aria-label="anchor" href="#blockers-for-deploy"></a></h3>
 <ul class="task-list"><li><label><input type="checkbox" checked><strong>#1 docs/ duplication + deploy mechanism.</strong> Resolved: <code>docs/</code> is now git-ignored; the Actions workflow builds &amp; deploys it. (Source assets in <code>pkgdown/assets/</code> are the only committed copies.)</label></li>
 <li><label><input type="checkbox" checked><strong>#5 CI deps.</strong> <code>Config/Needs/website</code> added to DESCRIPTION.</label></li>
-<li><label><input type="checkbox"><strong>#2 Commit</strong> the working copy (clean history/message). <em>(outward — your call)</em></label></li>
-<li><label><input type="checkbox"><strong>#3 Merge with original repo.</strong> No real git divergence — just commit <code>-site</code> work and push to <code>gl-smith/VietnamWarData</code>; then retire the frozen original folder so there’s one working copy. <em>(outward — your call)</em></label></li>
-<li><label><input type="checkbox"><strong>#4 Enable GitHub Pages.</strong> <code>usethis::use_pkgdown_github_pages()</code> (creates gh-pages + enables Pages; needs GitHub auth). <em>(outward — your call)</em></label></li>
+<li><label><input type="checkbox" checked><strong>#2 Commit</strong> — committed as <code>7d48801</code> (“Add pkgdown documentation website”).</label></li>
+<li><label><input type="checkbox" checked><strong>#3 Merge/push</strong> — pushed to <code>gl-smith/VietnamWarData</code> master (no divergence; this is the merge). TODO: retire the frozen original folder <code>~/Dropbox/r-packages/VietnamWarData/</code> so there’s one working copy.</label></li>
+<li><label><input type="checkbox" checked><strong>#4 GitHub Pages — LIVE.</strong> Site published and verified at <a href="https://gl-smith.github.io/VietnamWarData/" class="uri">https://gl-smith.github.io/VietnamWarData/</a> (home, navbar, Explore plotly page, and hosted CMPS PDF all confirmed; auto-HTTPS on).</label></li>
+</ul></div>
+<div class="section level3">
+<h3 id="post-launch--optional">Post-launch / optional<a class="anchor" aria-label="anchor" href="#post-launch--optional"></a></h3>
+<ul class="task-list"><li><label><input type="checkbox">Retire the frozen original folder <code>~/Dropbox/r-packages/VietnamWarData/</code> (it’s now stale vs. origin/master).</label></li>
+<li><label><input type="checkbox">Custom domain (optional): <code>vietnamwardata.org</code> is NOT registered. To use it, register it, add GitHub Pages A records (185.199.108-111.153) + AAAA (2606:50c0:8000-8003::153), set it in Settings &gt; Pages, then I’ll add a CNAME file to pkgdown/assets/ + update url:/URL:. Until then, the github.io URL is canonical.</label></li>
+<li><label><input type="checkbox">#9 confirm Explore density animation in-browser; #10 finalize Explore wording (TODO in explore.Rmd).</label></li>
+<li><label><input type="checkbox">Note: GO-LIVE.md has uncommitted edits; commit on the next push if you want it tracked.</label></li>
 </ul></div>
 <div class="section level3">
 <h3 id="quality--correctness">Quality / correctness<a class="anchor" aria-label="anchor" href="#quality--correctness"></a></h3>
