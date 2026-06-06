@@ -3,6 +3,7 @@
 ## Authors
 
 - **Gregory L. Smith**. Author, maintainer.
+  [](https://orcid.org/0000-0002-1985-2882)
 
 ## Citation
 
