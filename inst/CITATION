@@ -1,5 +1,6 @@
 citHeader(
-  "To cite VietnamWarData in publications, please cite the accompanying article:"
+  "To cite VietnamWarData in publications, please cite the accompanying article.",
+  "To cite the software/package itself, please also cite the second entry."
 )
 
 bibentry(
@@ -15,5 +16,21 @@ bibentry(
     "Beyond body counts: Vietnam war ground combat data.",
     "Conflict Management and Peace Science.",
     "doi:10.1177/07388942251391081."
+  )
+)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "VietnamWarData: Download Vietnam War Datasets Declassified by NARA",
+  author  = person("Gregory L.", "Smith"),
+  year    = "2026",
+  note    = "R package version 1.0.1",
+  doi     = "10.5281/zenodo.20572447",
+  url     = "https://gl-smith.github.io/VietnamWarData/",
+  textVersion = paste(
+    "Smith, Gregory L. (2026).",
+    "VietnamWarData: Download Vietnam War Datasets Declassified by NARA.",
+    "R package version 1.0.1.",
+    "doi:10.5281/zenodo.20572447."
   )
 )

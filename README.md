@@ -1,5 +1,9 @@
 # VietnamWarData <img src="man/figures/logo.png" align="right" height="139" alt="VietnamWarData hex logo" />
 
+<!-- badges: start -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20572447.svg)](https://doi.org/10.5281/zenodo.20572447)
+<!-- badges: end -->
+
 An R package for downloading and working with cleaned Vietnam War datasets declassified by the National Archives and Records Administration (NARA). The datasets and cleaning procedures are documented in:
 
 > Smith, Gregory L. "Beyond body counts: Vietnam war ground combat data." *Conflict Management and Peace Science* (2025). DOI: [10.1177/07388942251391081](https://doi.org/10.1177/07388942251391081)
