@@ -92,10 +92,10 @@
 <p>The Hamlet Evaluation System comes in two package files:
 <code><a href="../reference/get_hes_hamla.html">get_hes_hamla()</a></code> (HAMLA, 1967–1969) and
 <code><a href="../reference/get_hes70.html">get_hes70()</a></code> (HES-70/71, 1969–1974). They use different
-column layouts, but both classify every hamlet into the <strong>same
-security category</strong> — Score A through Score E, plus VC
-Controlled. This article uses that common category to combine the two
-files into a single 1–6 security score and then maps it.</p>
+column layouts, but both classify every hamlet into the same security
+category — Score A through Score E, plus VC Controlled. This article
+uses that common category to combine the two files into a single 1–6
+security score and then maps it.</p>
 <p>Code chunks are not run when the site is built (the HES files are
 large downloads); the figures shown are pre-rendered.</p>
 <div class="section level2">
@@ -117,8 +117,8 @@ large downloads); the figures shown are pre-rendered.</p>
 </h2>
 <p>Keep the hamlet-level records from each file, line up the shared
 columns (renaming coordinates and the category field), join, then
-translate the category into an ordered score: <strong>A = 1 (full
-Allied/GVN control) … E = 5, V = 6 (full VC control)</strong>.</p>
+translate the category into an ordered score: A = 1 (full Allied/GVN
+control) … E = 5, V = 6 (full VC control).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hamla</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_hes_hamla.html">get_hes_hamla</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">record_type</span> <span class="op">==</span> <span class="st">"Hamlet Record"</span><span class="op">)</span> <span class="op">|&gt;</span></span>

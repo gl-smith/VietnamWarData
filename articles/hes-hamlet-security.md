@@ -5,10 +5,9 @@ The Hamlet Evaluation System comes in two package files:
 (HAMLA, 1967–1969) and
 [`get_hes70()`](https://gl-smith.github.io/VietnamWarData/reference/get_hes70.md)
 (HES-70/71, 1969–1974). They use different column layouts, but both
-classify every hamlet into the **same security category** — Score A
-through Score E, plus VC Controlled. This article uses that common
-category to combine the two files into a single 1–6 security score and
-then maps it.
+classify every hamlet into the same security category — Score A through
+Score E, plus VC Controlled. This article uses that common category to
+combine the two files into a single 1–6 security score and then maps it.
 
 Code chunks are not run when the site is built (the HES files are large
 downloads); the figures shown are pre-rendered.
@@ -32,8 +31,8 @@ sv_outline <- get_province_boundaries() |> st_union()
 
 Keep the hamlet-level records from each file, line up the shared columns
 (renaming coordinates and the category field), join, then translate the
-category into an ordered score: **A = 1 (full Allied/GVN control) … E =
-5, V = 6 (full VC control)**.
+category into an ordered score: A = 1 (full Allied/GVN control) … E = 5,
+V = 6 (full VC control).
 
 ``` r
 

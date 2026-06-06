@@ -46,8 +46,10 @@ Data for pre-rendering lives in `data-raw/release-assets/`
 - Fixed `get_vciia` broken cross-ref + corrected `get_basfa` docs
   (returns tibble w/ `geometry` sfc).
 - Documentation menu: 13 NARA guide PDFs (`pkgdown/assets/guides/`).
-- **Vignettes** tab (4): province choropleth, satellite maps, BASFA base
-  areas, incident counts.
+- **Vignettes** tab (6): province choropleth, satellite maps, BASFA base
+  areas, HES hamlet security (combines HAMLA + HES-70/71 on the hamlet
+  category), SEAFA unit locations (incl. 1/11 ACR track), incident
+  counts.
 - **Explore** tab: interactive plotly page (animated density heatmap +
   counts), bundled pre-aggregated data.
 - **Articles** tab: CMPS preprint PDF + ISQ 2026 placeholder. PDF links
