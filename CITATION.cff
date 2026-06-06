@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying article (below)."
+title: "VietnamWarData: Download Vietnam War Datasets Declassified by NARA"
+abstract: >-
+  An R package providing functions to download and locally cache cleaned,
+  analysis-ready Vietnam War datasets declassified by the U.S. National Archives
+  and Records Administration (NARA). Includes ground combat incidents, U.S.
+  casualty records, hamlet evaluation surveys, naval gunfire missions,
+  psychological operations, base area assessments, and a combined incident-level
+  ground combat database.
+type: software
+version: 1.0.0
+date-released: "2026-06-06"
+license: MIT
+authors:
+  - family-names: Smith
+    given-names: Gregory L.
+    email: gregory.l.smith58@gmail.com
+    orcid: "https://orcid.org/0000-0002-1985-2882"
+repository-code: "https://github.com/gl-smith/VietnamWarData"
+url: "https://gl-smith.github.io/VietnamWarData/"
+keywords:
+  - Vietnam War
+  - NARA
+  - R
+  - datasets
+  - military history
+  - political science
+  - hamlet evaluation system
+preferred-citation:
+  type: article
+  title: "Beyond body counts: Vietnam war ground combat data"
+  authors:
+    - family-names: Smith
+      given-names: Gregory L.
+      orcid: "https://orcid.org/0000-0002-1985-2882"
+  journal: "Conflict Management and Peace Science"
+  year: 2025
+  doi: "10.1177/07388942251391081"

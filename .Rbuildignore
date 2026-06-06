@@ -10,3 +10,5 @@
 ^\.DS_Store$
 ^inst/extdata/.*_satellite_map\.RData$
 ^GO-LIVE\.md$
+^CITATION\.cff$
+^\.zenodo\.json$
