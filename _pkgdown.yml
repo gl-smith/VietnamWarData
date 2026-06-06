@@ -17,10 +17,16 @@ navbar:
     left:  [intro, reference, explore, articles, papers, documentation, news]
     right: [github]
   components:
-    # Interactive (plotly) data explorer — its own top-level tab.
+    # Interactive tools grouped under an "Explore" dropdown.
     explore:
       text: Explore
-      href: articles/explore.html
+      menu:
+        - text: Overview
+          href: articles/explore.html
+        - text: Interactive charts
+          href: articles/interactive-charts.html
+        - text: Casualties explorer
+          href: casualties-explorer/index.html
     # Rename the built-in vignette tab ("Articles") to "Vignettes".
     articles:
       text: Vignettes
@@ -97,15 +103,16 @@ articles:
   - title: Vignettes
     navbar: ~
     contents:
+      - incident-counts
       - province-map
       - satellite-maps
       - base-areas
       - hes-hamlet-security
       - seafa-unit-locations
-      - incident-counts
   - title: Interactive
     contents:
       - explore
+      - interactive-charts
 
 reference:
   - title: "Ground Combat"

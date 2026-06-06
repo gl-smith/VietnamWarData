@@ -7,91 +7,36 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-# TODO (before the site goes live): finalize all wording and text on this page --
-# the page title ("Explore the data"), the tab/section headings
-# ("Interactive charts", "Incident density over time", "Event counts"), and the
-# intro/caption copy. These are working placeholders pending final wording.
-
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-library(dplyr)
-library(ggplot2)
-library(plotly)
-
-# Load the small pre-aggregated data shipped with the package. Try the installed
-# package first; fall back to the source tree (used when the site is built).
-.path <- system.file("extdata", "explore_data.rds", package = "VietnamWarData")
-if (!nzchar(.path) || !file.exists(.path)) .path <- "../inst/extdata/explore_data.rds"
-ex <- readRDS(.path)
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = FALSE)
 ```
 
-These charts are **interactive** and run entirely in your browser — no R session
-required. Drag the year slider (or press **play**) to watch patterns change over
-time; hover for exact values, and click-drag to zoom. The underlying figures
-come from the combined incident database (`get_comb_inc_dta()`), pre-aggregated
-for use here.
+This package ships two interactive tools that run **entirely in your browser** —
+no R installation or download required. Pick one below.
 
-## Interactive charts {.tabset .tabset-pills}
+## [Interactive charts](interactive-charts.html)
 
-### Incident density over time
+Animated views of the combined ground-combat database (`get_comb_inc_dta()`):
 
-A 2-D density heat map of ground combat incidents across South Vietnam,
-1963–1973, split by initiating side. Use the slider to step through the years.
+- a year-by-year 2-D density heat map of incidents across South Vietnam, and
+- enemy incidents by action category and incidents per month over time.
 
-```{r density, out.width = "100%", fig.height = 6}
-g <- ggplot(ex$density_grid, aes(lon_bin, lat_bin, fill = n, frame = year)) +
-  geom_tile() +
-  facet_wrap(~ aggressor_side) +
-  scale_fill_viridis_c(option = "inferno", trans = "log10", name = "Incidents") +
-  coord_fixed(expand = FALSE) +
-  labs(x = NULL, y = NULL) +
-  theme_minimal(base_size = 12) +
-  theme(axis.text = element_blank(), panel.grid = element_blank(),
-        strip.text = element_text(face = "bold"))
+Drag the year slider or press play; hover and zoom. Loads instantly.
 
-ggplotly(g, height = 560) |>
-  animation_opts(frame = 650, transition = 0, redraw = TRUE) |>
-  animation_slider(currentvalue = list(prefix = "Year "))
-```
+[Open the interactive charts →](interactive-charts.html)
 
-### Event counts
+## [Casualties explorer](../casualties-explorer/index.html)
 
-**Enemy incidents by action category** — press play or drag the slider to see how
-the mix of harassment, terrorism, mining, and attacks shifted year to year.
+A live app (built with [shinylive](https://posit-dev.github.io/r-shinylive/))
+for the U.S. fatal-casualty records (`get_dcas()`). Filter by **service
+branch**, **state of origin**, and **year of death**, and every view re-counts
+to match:
 
-```{r counts-cat, out.width = "100%", fig.height = 5}
-plot_ly(
-  ex$enemy_cat_year,
-  x = ~n, y = ~enemy_action_category, frame = ~year,
-  type = "bar", orientation = "h",
-  marker = list(color = "#7c1f12"),
-  hovertemplate = "%{y}: %{x:,} incidents<extra></extra>"
-) |>
-  layout(
-    xaxis = list(title = "Number of incidents"),
-    yaxis = list(title = "", categoryorder = "total ascending"),
-    margin = list(l = 130)
-  ) |>
-  animation_opts(frame = 700) |>
-  animation_slider(currentvalue = list(prefix = "Year "))
-```
+- a choropleth map of casualties by home state,
+- casualties over time, and
+- the states ranked by casualty count.
 
-**Incidents per month** — hover for monthly totals; click-drag to zoom into a
-period (e.g. the 1968 Tet Offensive).
+Because it runs a small R session inside your browser, the first load takes a
+few seconds.
 
-```{r counts-ts, out.width = "100%", fig.height = 4.5}
-g_ts <- ggplot(ex$by_month, aes(ym, n, color = aggressor_side)) +
-  geom_line(linewidth = 0.6) +
-  scale_color_brewer(palette = "Set1", name = NULL) +
-  labs(x = NULL, y = "Incidents / month") +
-  theme_minimal(base_size = 12)
-
-ggplotly(g_ts, height = 380)
-```
-
-## {-}
-
-*Want to build these yourself?* See the
-[satellite](satellite-maps.html) and [counts](incident-counts.html) vignettes
-for the underlying (static) recipes, or grab the data with
-`get_comb_inc_dta()`.
+[Open the casualties explorer →](../casualties-explorer/index.html)
